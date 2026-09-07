@@ -13,7 +13,7 @@ node_modules/
 dist/
 *.local
 
-# 可再生的数据产物（warehouse.db 保留提交）
+# 数据产物（仅可再生的中间件，不提交；warehouse.db 保留）
 data/raw/
 data/导出/
 数据交付_*.xlsx

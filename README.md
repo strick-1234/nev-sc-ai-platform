@@ -39,7 +39,7 @@ An all-in-one demo that turns messy heterogeneous logistics data into a decision
 ├─ export_excel.py      # 导出 Excel 数据包（可选）
 ├─ fused_tools/         # 6 个可审计工具（数据层，对接 warehouse.db）
 ├─ 知识库/               # SOP 文档（工具⑥ 知识库检索读取）
-├─ data/warehouse.db    # 已生成的数仓（25MB，含全部演示数据）
+├─ data/warehouse.db   # 演示数仓（约 25MB，已随仓库提供）
 └─ web-frontend/        # Vue3 + ECharts 大屏前端（npm install && npm run dev）
 ```
 
@@ -49,7 +49,7 @@ An all-in-one demo that turns messy heterogeneous logistics data into a decision
 # 1) Python 依赖（建议 venv）
 pip install -r requirements.txt
 
-# 2) 启动 API（8503）——warehouse.db 已包含，无需先生成数据
+# 2) 启动 API（8503）——data/warehouse.db 已随仓库提供，可直接跑
 python api_server.py
 
 # 3) 另开终端启动前端（5174）
@@ -58,6 +58,9 @@ npm install
 npm run dev
 # 浏览器打开 http://localhost:5174
 ```
+
+可选：重建数仓 / 重出 Excel 数据包（会重新生成 data/warehouse.db 与 CSV）：
+`python build_data.py`（先停 api_server）· `python export_excel.py`
 
 - **AI 对话需要 API Key**：复制 `.env.example` 为 `.env` 并填入 `DEEPSEEK_API_KEY`；不填也可正常看大屏（AI 面板会提示）。
 - **可选：重建数据 / 重出 Excel**：`python build_data.py`（先停 api_server，否则数据库被占用）、`python export_excel.py`。
