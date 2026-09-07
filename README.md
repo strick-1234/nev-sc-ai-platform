@@ -1,11 +1,11 @@
 # 🚛 NEV Aftersales Supply Chain — Data + AI Decision Platform
 
-> **新能源汽车售后供应链「数据 + AI 决策平台」** · 个人项目演示
+> **新能源汽车售后供应链「数据 + AI 决策平台」** · 
 > 物流数据集成（5 套异构系统 → ETL → 数仓） × 可视化大屏 × LLM Agent 智能决策（AI 计划员）
 
 An all-in-one demo that turns messy heterogeneous logistics data into a decision-support pipeline: **集成 → 建仓 → 可视化 → 对话式 AI 决策 → 审批闭环**。Data is simulated but business-calibrated (deterministic seed, one-command rebuild). No real enterprise data involved.
 
-> 面试官/评审提示：入口为 Vue3 + ECharts 指挥大屏（含全国在途地图、三级详情下钻、补货建议单审批与导出），右侧为 DeepSeek Function Calling 智能体——**所有计算走本地可审计工具，LLM 只做语义理解与编排（防幻觉设计）**。
+> 入口为 Vue3 + ECharts 指挥大屏（含全国在途地图、三级详情下钻、补货建议单审批与导出），右侧为 DeepSeek Function Calling 智能体——**所有计算走本地可审计工具，LLM 只做语义理解与编排（防幻觉设计）**。
 
 ---
 
@@ -80,12 +80,7 @@ npm run dev
 
 单 SKU 查询 0.04s 级（与总量无关）｜全网补货巡检（3,000 SKU）0.55s｜预测可靠性全量 0.04s——单连接批量 + 缓存 + 索引实现，已做容量边界说明（README 同目录 `融合平台` 历史文档见 git log）。
 
-## ⚠️ 诚实说明
 
-- 全部数据为**模拟生成**（固定种子可复现），用于功能演示与教学原型，不代表真实企业运营；
-- 单机 SQLite 实现，规模化需换企业级存储（架构分层预留）；
-- 云端推理涉及数据出境场景时，可将 LLM 切换为本地/私有化模型（改 `agent.py` 的 base_url/model）；
-- 未包含任何简历 / 个人 / 密钥信息（`.env` 已被 gitignore）。
 
 ## 🧰 技术栈
 
