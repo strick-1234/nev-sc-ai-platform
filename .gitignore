@@ -1,0 +1,23 @@
+# 密钥与环境（绝不提交）
+.env
+*.key
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.tmp/
+
+# Node
+node_modules/
+dist/
+*.local
+
+# 可再生的数据产物（warehouse.db 保留提交）
+data/raw/
+data/导出/
+数据交付_*.xlsx
+
+# 系统
+.DS_Store
+Thumbs.db
