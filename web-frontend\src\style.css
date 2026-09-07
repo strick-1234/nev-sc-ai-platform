@@ -1,0 +1,198 @@
+/* ============================================================
+   大屏全局样式（深色主题）
+   ============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  color: #dbeafe;
+  background: radial-gradient(ellipse at top, #0b1e3a 0%, #060d1f 55%, #040918 100%);
+  overflow-x: hidden;
+}
+
+/* 大屏容器 */
+.dashboard {
+  min-height: 100vh;
+  padding: 16px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* 顶部标题栏 */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+  background: linear-gradient(90deg, rgba(16, 58, 118, 0.55), rgba(9, 25, 51, 0.55));
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 8px;
+}
+.header h1 {
+  font-size: 26px;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #7dd3fc, #e0f2fe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.header .time {
+  font-size: 15px;
+  color: #93c5fd;
+  letter-spacing: 1px;
+}
+
+/* KPI 卡片行 */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+.kpi-card {
+  padding: 14px 16px;
+  background: linear-gradient(160deg, rgba(20, 48, 94, 0.7), rgba(10, 25, 50, 0.7));
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.kpi-card::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--accent, #38bdf8);
+}
+.kpi-value {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.kpi-label {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #9ec8f5;
+}
+.kpi-sub { font-size: 12px; color: #6b93bd; margin-top: 2px; }
+
+/* 面板通用样式 */
+.panel {
+  background: linear-gradient(160deg, rgba(16, 38, 74, 0.55), rgba(8, 20, 40, 0.55));
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.panel-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #bae6fd;
+  letter-spacing: 1px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.panel-title::before {
+  content: '';
+  width: 4px; height: 14px;
+  background: #38bdf8;
+  border-radius: 2px;
+}
+.panel-body { flex: 1; min-height: 0; position: relative; }
+
+/* 主网格 */
+.main-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px;
+}
+.sub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* 图表容器 */
+.chart { width: 100%; height: 100%; min-height: 260px; }
+.map { width: 100%; height: 100%; min-height: 340px; }
+
+/* 告警列表 */
+.alert-list { height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+.alert-item {
+  padding: 8px 10px;
+  background: rgba(10, 26, 52, 0.6);
+  border-left: 3px solid #f59e0b;
+  border-radius: 4px;
+  font-size: 13px;
+}
+.alert-item .row1 { display: flex; justify-content: space-between; align-items: center; }
+.alert-item .type { font-weight: 600; }
+.alert-item .desc { color: #9db8d8; font-size: 12px; margin-top: 3px; }
+
+.badge {
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+.badge.level-high { background: #7f1d1d; color: #fecaca; }
+.badge.level-mid  { background: #78350f; color: #fde68a; }
+.badge.level-low  { background: #1e3a5f; color: #93c5fd; }
+.badge.status-pending  { background: #7f1d1d; color: #fecaca; }
+.badge.status-processing { background: #78350f; color: #fde68a; }
+.badge.status-closed  { background: #14532d; color: #bbf7d0; }
+
+/* 数据源状态条 */
+.ds-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+.ds-card {
+  padding: 12px;
+  background: linear-gradient(160deg, rgba(16, 48, 90, 0.6), rgba(8, 22, 44, 0.6));
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 8px;
+  font-size: 13px;
+}
+.ds-card .name { font-size: 15px; font-weight: 600; color: #bae6fd; }
+.ds-card .row { display: flex; justify-content: space-between; margin-top: 6px; color: #9db8d8; }
+.ds-card .row b { color: #e0f2fe; font-weight: 500; }
+
+/* 地图工具条 */
+.map-tools {
+  position: absolute;
+  top: 8px; left: 8px;
+  z-index: 10;
+}
+.map-tools select {
+  background: rgba(10, 30, 60, 0.9);
+  color: #dbeafe;
+  border: 1px solid #2b6cb0;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-size: 13px;
+  max-width: 240px;
+}
+.map-info {
+  position: absolute;
+  top: 8px; right: 8px;
+  background: rgba(10, 30, 60, 0.9);
+  border: 1px solid #2b6cb0;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: #bae6fd;
+  z-index: 10;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: #2b6cb0; border-radius: 3px; }
